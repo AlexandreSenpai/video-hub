@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usagi Video</title>
+</head>
+<body>
+    <p>{{title}}</p>
+    <p>{{text}}</p>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type='text' name='file_name'/>
+        <input type='file' name='photo'/>
+        <input type='submit' value='Submit'/>
+    </form>
+</body>
+</html>
