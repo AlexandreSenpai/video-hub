@@ -1,28 +1,31 @@
 from datetime import datetime
+from flask import abort
 
-ext = {
-    'video': ['mp4', 'avi', 'wmv', 'mov', 'ogg', 'mpg', 'mpeg', 'webm', 'flv'],
-    'photo': ['jpg', 'jpeg', 'png', 'svg']
-}
-patt = {
-    'video': '<video width="100%" autoplay><source src="{}" type="video/{}"></video>',
-    'photo': '<img src="{}"/>'
-}
+class Upload:
+    def __init__(self):
+        self.ext = {
+            'video': ['mp4', 'ogg'],
+            'photo': ['jpg', 'jpeg', 'png', 'svg']
+        }
+        self.patt = {
+            'video': '<video width="100%" autoplay><source src="{}" type="video/{}"></video>',
+            'photo': '<img src="{}"/>'
+        }
+    
+    def download_file(self, file, filename):
+        try:
+            if filename == '':
+                file.save('./static/download/' + str(datetime.now()))
+            else:
+                file.save('./static/download/' + filename)
+        except:
+            abort(500)
 
-def download_file(file, filename):
-    try:
-        if filename == '':
-            saved = file.save('./static/download/' + str(datetime.now()))
+    def display_download(self, url, filename):
+        file_type = filename.split('.')[-1].lower()
+        if file_type in self.ext['video']:
+            return self.patt['video'].format(url, file_type)
+        elif file_type in self.ext['photo']:
+            return self.patt['photo'].format(url)
         else:
-            saved = file.save('./static/download/' + filename)
-    except Exception as e:
-        return 500
-
-def display_download(filename):
-    file_type = filename.split('.')[-1].lower()
-    if file_type in ext['video']:
-        return patt['video'].format(filename, file_type)
-    elif file_type in ext['photo']:
-        return patt['photo'].format(filename)
-    else:
-        return 'file extension not allowed.'
+            return 'file extension not allowed.'

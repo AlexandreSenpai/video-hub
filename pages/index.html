@@ -10,9 +10,16 @@
     <p>{{title}}</p>
     <p>{{text}}</p>
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type='text' name='file_name'/>
-        <input type='file' name='photo'/>
+        Video: <input type='file' name='content'/>
+        Thumbnail: <input type="file" name='thumbnail'/>
         <input type='submit' value='Submit'/>
     </form>
+    <div>
+        <ul>
+            {% for k in list.keys() %}
+                <div><a target='_blank' href='b/{{list[k].name}}'><img width='200px' height='200px' src='{{list[k].thumbnail}}'/></a></div>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
