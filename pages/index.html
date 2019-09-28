@@ -4,22 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Usagi Video</title>
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/style.css">
+    <title>HUB</title>
 </head>
 <body>
-    <p>{{title}}</p>
-    <p>{{text}}</p>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        Video: <input type='file' name='content'/>
-        Thumbnail: <input type="file" name='thumbnail'/>
-        <input type='submit' value='Submit'/>
-    </form>
-    <div>
-        <ul>
-            {% for k in list.keys() %}
-                <div><a target='_blank' href='b/{{list[k].name}}'><img width='200px' height='200px' src='{{list[k].thumbnail}}'/></a></div>
-            {% endfor %}
-        </ul>
+    <div class='main_div'>
+        <div class='bg'></div>
+        <div class='form_holder'>
+            <div class='form'>             
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class='site_name'>
+                        <h1>HUB</h1>
+                    </div>
+                    <div class='video_input'>
+                        <div class='fake_video'>
+                            <p>video</p>
+                            <input placeholder='video' type='file' name='content'/>
+                        </div>
+                    </div>
+                    <div class='thumbnail_input'>
+                        <div class='fake_thumb'>
+                            <p>thumbnail</p>
+                            <input type="file" name='thumbnail'/>
+                        </div>
+                    </div>
+                    <div class='submit_button'>
+                        <input type='submit' value='upload'/>
+                    </div>
+                </form>
+            </div>
+            <div class='img_holder'>
+                <img height='100%' src='../static/assets/images/form.gif'/>
+            </div>
+        </div>
     </div>
 </body>
 </html>
