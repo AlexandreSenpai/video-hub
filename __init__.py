@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from utils.download_file import Upload
-from utils.storage import Storage
+from utils.storage_utils import Storage
+from utils.tk_generator import id_gen
+import os
 
 app = Flask(__name__, template_folder='./pages/')
 stor = Storage()
@@ -8,29 +10,49 @@ upload = Upload()
 
 @app.route('/', methods=['GET'])
 def main_page():
-    lista = stor.list_blobs()
-    return render_template('index.html', list=lista)
+    blob_list = stor.list_blobs()
+    recent_list = stor.list_recent_blobs(24)
+    return render_template('index.html', blob_list=blob_list, recent=recent_list)
 
 @app.route('/b/<video>', methods=['GET', 'POST'])
 def dinamic_route(video):
-    lista = stor.list_blobs()
+    lista = stor.list_recent_blobs(24)
     url = lista[video]['content']
-    return upload.display_download(url, video)
+    name = lista[video]['name']
+    views = lista[video]['views']
+    creator = lista[video].get('creator')
+    date = lista[video]['date']
+    return render_template('player.html', video=upload.display_download(url, name, views, creator, date), blob_info=lista)
+
+@app.route('/upload_page', methods=['GET'])
+def redirect_to_upload_page():
+    return render_template('upload.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_videos():
     data = request.files
-    path = data.get('content').filename
-    blob_info = {'thumbnail_url': '', 'content_url': ''}
+    id = id_gen()
+    folder = id.generate_id()
+    files = []
+    error = []
     for file in list(data):
         file_blob = data.get(file)
-        file_name = file_blob.filename   
-        upload.download_file(file_blob, file_name)
-        url = stor.upload_file(path, file_name)
-        if file == 'content':
-            blob_info['content_url'] = url
+        file_name = file_blob.filename  
+        response = upload.download_file(file_blob, file_name)
+        if response == None:
+            files.append(file_name)
         else:
-            blob_info['thumbnail_url'] = url
+            error.append(file_name)
+    
+    print(error)
+    print(files)
+    if error == []:
+        for file_name in files:
+            stor.upload_file(folder, file_name)
+    else:
+        for file in os.listdir('./static/download'):
+            os.remove('./static/download/'+file)
+
     return redirect('/')
 
 if __name__ == '__main__':

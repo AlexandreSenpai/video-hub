@@ -1,3 +1,23 @@
+@font-face {
+  font-family: 'Tw Cen MT Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Tw Cen MT Condensed'), url('../../font/TCCM____.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Tw Cen MT Condensed Extra Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Tw Cen MT Condensed Extra Bold'), url('../../font/TCCEB.woff') format('woff');
+}
+@font-face {
+  font-family: 'Tw Cen MT Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Tw Cen MT Bold'), url('../../font/TCB_____.woff') format('woff');
+}
+
 body, html{
   font-size: 10px;
   color: #333;
@@ -81,9 +101,20 @@ form{
 }
 
 .video_input input{
-  opacity: 0;
+  opacity: 1;
   width: 100%;
   height: 40px;
+  margin-left: 4px;
+  border: none;
+}
+
+.fake_div{
+  height: 40px;
+  width: 85px;
+  border-radius: 10px;
+  position: absolute;
+  background: #f1f1f1;
+  z-index: 1;
 }
 
 .fake_video{
@@ -102,6 +133,7 @@ form{
   margin-top: 3.5%;
   position: absolute;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 999;
 }
 
 .thumbnail_input{
@@ -112,16 +144,18 @@ form{
 }
 
 .fake_thumb p {
-  margin-left: 3%;
-  margin-top: 2.5%;
+  margin-left: 2.4%;
+  margin-top: 2.4%;
   position: absolute;
+  z-index: 9999;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .thumbnail_input input{
-  opacity: 0;
+  opacity: 1;
   width: 100%;
   height: 40px;
+  margin-left: 5px;
 }
 
 .fake_video input:hover{

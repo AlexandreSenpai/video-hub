@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+@font-face {
+  font-family: 'Tw Cen MT Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Tw Cen MT Condensed'), url('../../font/TCCM____.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Tw Cen MT Condensed Extra Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Tw Cen MT Condensed Extra Bold'), url('../../font/TCCEB.woff') format('woff');
+}
+@font-face {
+  font-family: 'Tw Cen MT Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Tw Cen MT Bold'), url('../../font/TCB_____.woff') format('woff');
+}
+
+body, html{
+  margin: 0;
+  padding: 0;
+  background: #242424;
+  font-family: 'Roboto';
+  color: #f1f1f1;
+  font-size: 10px;
+}
+
+header{
+  width: 100%;
+  height: 50px;
+  background: #222222;
+  -webkit-box-shadow: -1px 9px 5px 0px rgba(0,0,0,0.10);
+  -moz-box-shadow: -1px 9px 5px 0px rgba(0,0,0,0.10);
+  box-shadow: -1px 9px 5px 0px rgba(0,0,0,0.10);
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+  color: #f1f1f1;
+}
+
+nav{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main_content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo{
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2%;
+}
+
+.logo a{
+  margin-top: 10%;
+  font-family: 'Tw Cen MT Condensed';
+  font-size: 25pt;
+}
+
+.logo p{
+  margin-top: 34%;
+  font-size: 14pt;
+  font-weight: lighter;
+}
+
+.search_holder{
+  width: 50%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search{
+  width: 100%;
+  display: flex;
+}
+
+.search input{
+  width: 85%;
+  border-radius: 10px;
+  height: 30px;
+  padding: 10px;
+  border: none;
+  border: 1px solid #d9d9d9;
+}
+
+.user_holder{
+  width: 13%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.upload{
+  font-size: 15pt;
+  display: flex;
+}
+
+.upload p::before{
+  content: url('../images/upload.svg');
+  background-size: 10px 20px;
+  display: inline-block;
+  margin: 0 5px 0 0;
+  width: 25px; 
+  height: 25px;
+}
+
+.notifications{
+  width: 25px;
+  height: 25px;
+}
+
+.user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_photo{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: white;
+}
+
+.main_holder{
+  width: 100%;
+}
+
+.content_holder{
+  width: 97%;
+  margin-top: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.video_main{
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.video_holder{
+  width: 1063px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.video{
+  width: 1063px;
+  height: 600px;
+  align-self: flex-end;
+}
+
+.video video{
+  width: 100%;
+  height: 100%;
+
+}
+
+.video_info_holder{
+  width: 100%;
+}
+
+.video_info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.video_titulo{
+  font-size: 20pt;
+  font-weight: lighter;
+}
+
+.video_date{
+  font-size: 10pt;
+  font-weight: lighter;
+}
+
+.video_views{
+  font-size: 20pt;
+  font-weight: lighter;
+}
+
+.suggestions_holder{
+  width: 30%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 5% 
+}
+
+.suggestions{
+  width: 302px;
+}
+
+.suggestion_title{
+  font-size: 15pt;
+}
+
+.suggestion_box{
+  width: 302px;
+  height: 120px;
+  display: flex;
+}
+
+.suggestion_thumb{
+  width: 364px;
+  height: 98px;
+  margin: 0 5% 0 0;
+  overflow: hidden;
+}
+
+.suggestion_desc{
+  width: 302px;
+  height: 30px;
+}

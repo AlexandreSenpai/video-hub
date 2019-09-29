@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' href='../static/assets/css/player.css' />
+    <title>Rabbit HUB</title>
+</head>
+<body>
+    <div class='main_holder'>
+        <header>
+            <nav>
+                <div class='logo'>
+                    <img src='../static/assets/images/usagi.png'/>
+                    <a href='/'><h1>HUB</h1></a>
+                    <p>.com</p>
+                </div>
+                <div class='search_holder'>
+                    <div class='search'>
+                        <input type="search" placeholder="pesquisar"/>
+                        <div class='search_btn'>
+                            <img src=''/>
+                            <input type="submit" value=''/>
+                        </div>
+                    </div>
+                </div>
+                <div class='user_holder'>
+                    <div class='upload'>
+                        <a href='/upload_page'><p>UPLOAD</p></a>
+                    </div>
+                    <div class='notifications'>
+                        <img src='../static/assets/images/notification.svg'/>
+                    </div>
+                    <div class='user'>
+                        <div class='user_photo'></div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class='main_content'>
+            <div class='content_holder'>
+                <div class='video_main'>
+                  <div class='video_holder'>
+                    <div class='video'>
+                        <video controls autoplay>
+                          <source src="{{video.url}}" type="video/{{video.type}}">
+                        </video>
+                    </div>
+                  
+                  <div class='video_info_holder'>
+                    <div class='video_info'>
+                      <div class='video_left_info'>
+                        <div class='video_titulo'>
+                          <p>{{video.name}}</p>
+                        </div>
+                        <div class='video_date'>
+                          <p>{{video.date}}</p>
+                        </div>
+                      </div>
+                      <div class='video_right_info'>
+                        <div class='video_views'>
+                          <p>{{video.views}} views</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class='suggestions_holder'>
+                  <div class='suggestions'>
+                    <div class='suggestion_title'>
+                      <p>VÍDEOS DA COMUNIDADE</p>
+                    </div>
+                    
+                    {% for blob in blob_info.keys() %}
+                    
+                      <div class='suggestion_box'>
+                        <div class='suggestion_thumb'>
+                          <a href='/b/{{blob}}'>
+                            <img width='100%' src='{{blob_info[blob].thumbnail}}'/>
+                          </a>
+                        </div>
+                        <div class='suggestion_desc'>
+                          <div class='seggestion_title'>
+                              <p>{{blob_info[blob].name}}</p>
+                          </div>
+                          <div class='suggestion_views'>
+                            <p>{{blob_info[blob].views}} views</p>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    {% endfor %}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
