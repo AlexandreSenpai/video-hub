@@ -14,20 +14,28 @@
             <div class='form'>             
                 <form action="/upload" method="post" enctype="multipart/form-data">
                     <div class='site_name'>
-                        <h1>HUB</h1>
+                        <a href='/'><h1>HUB</h1></a>
+                    </div>
+                    <div class='video_input'>
+                        <div class='fake_video title_input'>
+                            <p>titulo</p>
+                            <input type='text' required name='vid_name'/>
+                        </div>
                     </div>
                     <div class='video_input'>
                         <div class='fake_video'>
                             <p>video</p>
-                            <div class='fake_div'></div>
-                            <input type='file' required name='content'/>
+                            <div class='fake_video_input'>
+                                <input type='file' required name='content'/>
+                            </div>
                         </div>
                     </div>
-                    <div class='thumbnail_input'>
-                        <div class='fake_thumb'>
+                    <div class='video_input'>
+                        <div class='fake_video'>
                             <p>thumbnail</p>
-                            <div class='fake_div'></div>
-                            <input type="file" required name='thumbnail'/>
+                            <div class='fake_video_input thumb_input'>
+                                <input type="file" required name='thumbnail'/>
+                            </div>
                         </div>
                     </div>
                     <div class='submit_button'>
