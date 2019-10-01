@@ -9,14 +9,8 @@ class id_gen:
     self.alphanumeric = '1 2 3 4 5 6 7 8 9 0'.split()
     self.upper_chance = 0.5
 
-  def get_reverse_timestamp(self):
-    f = datetime.now()
-    a = 17**100 - int(datetime.timestamp(f))
-    return str(a)
-
   def generate_id(self):
     vid_id = ''
-    vid_id += self.get_reverse_timestamp()
     joined_alpha = self.alphabet + self.alphanumeric
     for h in range(self.character_range):
       chance = random.uniform(0, 1)
