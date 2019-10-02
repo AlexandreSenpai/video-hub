@@ -1,7 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-
 class Auth:
     def __init__(self):    
         self.cred = credentials.Certificate("./credentials/firebase-cred.json")
