@@ -9,7 +9,8 @@ class Upload:
 
     def download_file(self, file, filename):
         file_type = filename.split('.')[-1]
-        if file_type not in self.allowed:
-            return filename
-        else:
-            file.save('./static/download/' + filename)
+        if filename != '':
+            if file_type not in self.allowed:
+                return filename
+            else:
+                file.save('./static/download/' + filename)

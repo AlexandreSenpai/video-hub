@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/join.css">
+    <title>Rabbit HUB</title>
+</head>
+<body>
+    <div class='main_div'>
+        <div class='bg'></div>
+        <div class='form_holder'>
+        <div class='img_holder'>
+                <img src='../static/assets/images/join.gif'/>
+            </div>
+            <div class='form'>             
+                <form action="/create_user" method="post" enctype="multipart/form-data">
+                    <div class='site_name'>
+                        <a href='/'><h1>class JOIN_US:</h1></a>
+                    </div>
+                    <div class='fake_video title_input'>
+                        <p>user_name = </p>
+                        <div class='fake_video_input'>
+                            <input type='text' name='username'/>
+                        </div>
+                    </div>
+                    <div class='fake_video title_input'>
+                        <p>pass = </p>
+                        <div style='margin-left:-40%' class='fake_video_input'>
+                            <input type='password' name='password'/>
+                        </div>
+                    </div>
+                    <div class='fake_video title_input'>
+                        <p>conf_pass = </p>
+                        <div style='margin-left:-20%' class='fake_video_input'>
+                            <input type="text" name='conf_pass'/>
+                        </div>
+                    </div>
+                    <div class='fake_video title_input'>
+                        <p>email = </p>
+                        <div style='margin-left:-30%' class='fake_video_input'>
+                            <input type='text' required name='email'/>
+                        </div>
+                    </div>
+                    <div class='fake_video title_input'>
+                        <p>birth = </p>
+                        <div style='margin-left:-40%' class='fake_video_input'>
+                            <input type="date" name='birthday'/>
+                        </div>
+                    </div>
+                    <div class='fake_video title_input'>
+                        <p>avatar = </p>
+                        <div class='fake_video_input file'>
+                            <input type="file" name='avatar'/>
+                        </div>
+                    </div>
+                    <div class='submit_button'>
+                        <input type='submit' value='return user_data'/>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

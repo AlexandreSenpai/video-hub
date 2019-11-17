@@ -9,8 +9,11 @@
     <title>Rabbit Hub</title>
 </head>
 <body>
-    <script>
-        alert(<%=Session["upload_log"]%>)
+    <script> 
+        var log = {{log|tojson}}
+        if(log.msg != null){
+            alert(log.msg)
+        }
     </script>
     <div class='main_holder'>
         <header>
@@ -31,7 +34,7 @@
                 </div>
                 <div class='user_holder'>
                     <div class='upload'>
-                        <a href='/upload_page'><p>UPLOAD</p></a>
+                        <a href='/upload_page'><p></p></a>
                     </div>
                     <div class='notifications'>
                         <img src='../static/assets/images/notification.svg'/>

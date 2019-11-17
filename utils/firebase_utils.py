@@ -1,4 +1,5 @@
 import firebase_admin
+from firebase_admin import auth
 from firebase_admin import credentials
 from firebase_admin import firestore
 class Auth:
@@ -7,13 +8,13 @@ class Auth:
 
     def initialize_app(self):
         app = firebase_admin.initialize_app(self.cred)
-        db = firestore.client()
-        return db
-
+    
 class firebase(Auth):
     def __init__(self):
         super().__init__()
-        self.db = self.initialize_app()
+        self.app = self.initialize_app()
+        self.db = firestore.client()
+        self.auth = firebase_admin.auth
     
     def new_video(self, vid_id, obj):
         doc = self.db.collection(u"videos").document(vid_id)
@@ -41,7 +42,10 @@ class firebase(Auth):
         last = self.get_video(vid_id.get('id'))
         to_update = {"views": int(last.get('views')) + 1}
         doc = self.db.collection(u'videos').document(vid_id.get('id')).update(to_update)
+
+    def create_user(self, user_email, user_pass):
+        user_name = self.auth.create_user(email=user_email, password=user_pass)
         
 if __name__ == '__main__':
     app = firebase()
-    app.update_video()
+    app.create_user('alexandrebsramos@hotmail.com', 'nasakuki20')
